@@ -7,7 +7,7 @@ from base.get_code import GetCode
 import time
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys 
-import HTMLTestRunner
+import HTMLTestReportCN
 import unittest
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -39,6 +39,7 @@ class ActionMethod:
     '''截图'''
     def save_img(self,file_path):
         driver.save_screenshot(file_path)
+        
     '''刷新'''
     def refresh(self):
         driver.refresh()
@@ -289,7 +290,7 @@ class ActionMethod:
         file_path = os.path.join(os.getcwd()+"\\report\\"+repory_name+".html")
         f = open(file_path,'wb')
         suite = unittest.TestLoader().loadTestsFromTestCase(case_name)
-        runner = HTMLTestRunner.HTMLTestRunner(stream=f,title=repory_name,description=u"测试报告",verbosity=2)
+        runner = HTMLTestReportCN.HTMLTestRunner(stream=f,title=repory_name,description=u"测试报告",verbosity=2)
         runner.run(suite)
     
     '''显示等待'''

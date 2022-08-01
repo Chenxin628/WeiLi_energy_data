@@ -10,7 +10,7 @@ from collect_data_case import Test_Collect_data
 from delete_case import Test_Delete_data
 
 import os
-import HTMLTestRunner
+import HTMLTestReportCN
 import unittest
 
     
@@ -29,7 +29,7 @@ suite.addTest(unittest.makeSuite(Test_Delete_data))
 
 file_path = os.path.join(os.getcwd()+"\\report\\"+"总流程报告.html")
 f = open(file_path,'wb')
-runner = HTMLTestRunner.HTMLTestRunner(stream=f,title="总流程报告",description=u"测试报告",verbosity=2)
+runner = HTMLTestReportCN.HTMLTestRunner(stream=f,title="总流程报告",description=u"测试报告",verbosity=2)
 runner.run(suite)
 
 file_name = os.path.join(os.getcwd()+"\\config\\ProductionElement.ini")

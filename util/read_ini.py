@@ -1,9 +1,11 @@
 import configparser
+import os
 
 class ReadIni(object):
     def __init__(self,filename=None):
         if filename==None:
-            self.filename="D:/sihe/weili/config/LoginElement.ini"
+            file_path = os.path.join(os.getcwd()+"\\config\\LoginElement.ini")
+            self.filename=file_path
         # if node==None:
         #     self.node="LoginElement"
         else:
@@ -24,5 +26,5 @@ class ReadIni(object):
 
 
 if __name__ =='__main__':
-    ReadIni("D:\sihe\weili02\config\Energy_report_Element.ini")
+    ReadIni(os.path.join(os.getcwd()+"\\config\\LoginElement.ini"))
     

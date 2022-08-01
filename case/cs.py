@@ -1,23 +1,27 @@
+import imp
+import unittest
+import os
+import HTMLTestReportCN
 
-#1.引入pymysql
-import pymysql
-#2.连接数据库
-mydb=pymysql.connect(
-    host='172.16.2.210',
-    port=3306,
-    user='root',
-    passwd='Moore@2019',
-    db='eom',
-    charset='utf8')
-#3..创建游标对象
-cur=mydb.cursor()
+from log.log import CaseLog
+log=CaseLog()
+logger = log.get_log()
+class TestDemo(unittest.TestCase):
 
-#5.获取数据
-str="select * from enterprise_code_data"
-cur.execute(str)
-data=cur.fetchone()
-print(data)#这里就是获取的数据
+    def test_one(self):
+        logger.info("case name:test_one")
+        assert 1 == 1
 
-#6.关闭数据库
-mydb.close()
-
+    def test_two(self):
+        logger.info("case name:test_two")
+        assert 'H' in "Helloword!"
+        
+    def test_three(self):
+        logger.info("case name:test_three")
+        assert 5 == 10
+if __name__ == '__main__':
+    file_path = os.path.join(os.getcwd()+"\\report\\111.html")
+    f = open(file_path,'wb')
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestDemo)
+    runner = HTMLTestReportCN.HTMLTestRunner(stream=f,title="测试报告",description=u"测试报告",verbosity=2)
+    runner.run(suite)

@@ -28,7 +28,7 @@ class Test_Collect(unittest.TestCase):
                 case_name=self._testMethodName
                 file_path=os.path.join(os.getcwd()+"\\img\\"+case_name+".png")
                 action.save_img(file_path)
-        print("这是case的后置调键")
+
     
     @classmethod
     def tearDownClass(self):

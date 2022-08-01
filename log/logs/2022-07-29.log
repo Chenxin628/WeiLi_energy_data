@@ -1,0 +1,5 @@
+2022-07-29 18:09:28,224 yield_product_case.py--> setUpClass 20: INFO ----->------执行添加生产产品case------
+2022-07-29 18:09:31,529 actionMethod.py--> get_xpath_text 20: INFO ----->未找到脚本测试新建产品,文本已被删除或不存在
+2022-07-29 18:09:35,465 actionMethod.py--> click_cancel 30: WARNING ----->操作成功！
+2022-07-29 18:09:38,012 actionMethod.py--> click_cancel 30: WARNING ----->操作失败
+2022-07-29 18:19:29,504 log.py--> <module> 20: INFO ----->test
