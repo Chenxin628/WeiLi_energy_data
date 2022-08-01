@@ -14,9 +14,9 @@ class CaseLog(object):
 
         self.logger.setLevel(logging.DEBUG)
         #控制台输出日志
-        # consle = logging.StreamHandler()
+        # self.consle = logging.StreamHandler()
         # self.logger.addHandler(consle)
-        # consle.setLevel(logging.INFO)
+        # self.consle.setLevel(logging.INFO)
 
 
         #文件名字
@@ -30,8 +30,9 @@ class CaseLog(object):
         self.file_handle.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s %(filename)s--> %(funcName)s %(levelno)s: %(levelname)s ----->%(message)s')
         self.file_handle.setFormatter(formatter)
-        self.logger.addHandler(self.file_handle)
-        # self.logger.addHandler(consle)
+        if not self.logger.handlers:
+            self.logger.addHandler(self.file_handle)
+            # self.logger.addHandler(self.consle)
 
 
 
@@ -41,6 +42,8 @@ class CaseLog(object):
     
     def close_handle(self):
         self.logger.removeHandler(self.file_handle)
+        # self.logger.removeHandler(self.consle)
+
         self.file_handle.close()
         
 
