@@ -1,9 +1,12 @@
+import os
+import sys
+curPath = os.path.abspath(os.path.join(os.getcwd()))
+sys.path.append(curPath)
 from handle.collection_handle import Collection_handle
 from base.actionMethod import ActionMethod
 # from log.log import CaseLog
 import unittest
 import ddt
-import os
 file_path = os.path.join(os.getcwd()+"\\config\\CollectionElement.ini")
 action=ActionMethod(file_path)
 
@@ -33,6 +36,7 @@ class Test_Collect(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         # self.log.close_handle()
+        # action.close_browser()
         action.refresh()
         
 
@@ -42,9 +46,8 @@ class Test_Collect(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_collect(self,name_t,table_t,id_t,ip_t,port_t,byte_t,frequency_t=None):
-        add_error=self.collect_h.add_collection(name_t,table_t,id_t,ip_t,port_t,byte_t,frequency_t)
-
-        # self.assertTrue(add_error,"测试成功")
+        add=self.collect_h.add_collection(name_t,table_t,id_t,ip_t,port_t,byte_t,frequency_t)
+        self.assertTrue(add,"测试成功")
 
     @ddt.data(
         ['热能表','脚本测试新增表参数','累计值']
@@ -53,7 +56,6 @@ class Test_Collect(unittest.TestCase):
     @ddt.unpack
     def test_2_add_parameter(self,table_t,name_t,type_t):
         add_error=self.collect_h.add_parameter(table_t,name_t,type_t)
-
         # self.assertTrue(add_error,"测试成功")
     
     @ddt.data(
@@ -62,9 +64,8 @@ class Test_Collect(unittest.TestCase):
     )
     @ddt.unpack
     def test_3_add_meter(self,collect_t,table_t,num_t,name_t,methon_t,address_t):
-        add_error=self.collect_h.add_meter(collect_t,table_t,num_t,name_t,methon_t,address_t)
-
-        # self.assertTrue(add_error,"测试成功")
+        add=self.collect_h.add_meter(collect_t,table_t,num_t,name_t,methon_t,address_t)
+        self.assertTrue(add,"测试成功")
 
 
 

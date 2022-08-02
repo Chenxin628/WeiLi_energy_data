@@ -42,8 +42,8 @@ class Test_Energy_type(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_report(self,name_t):
-        add_error=self.energy_h.add_energy(name_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.energy_h.add_energy(name_t)
+        self.assertTrue(add,"测试成功")
 
 
 

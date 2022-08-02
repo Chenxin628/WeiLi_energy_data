@@ -26,13 +26,14 @@ class Delete_handle():
             element.click()
             action.get_xpath_element("确 定")
         action.show_wait("ant-message-notice-content")
-        if action.get_element("MessiageElement","messiage"):
-            action.get_xpath_text(collectdata_name_t)
+        
+        if action.get_xpath_text(collectdata_name_t):
+            self.logger.info("找到文本:"+collectdata_name_t+",采集项添加成功")
             return True
         else:
-            self.logger.error("未提示操作成功,error")
+            self.logger.info("未找到文本:"+collectdata_name_t+",采集项添加失败")
             return False
-        
+       
 
         
 

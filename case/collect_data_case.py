@@ -37,8 +37,8 @@ class Test_Collect_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_collect(self,name_t,range_t,product_t,product_unit_t,data_type_t,data_class_t,usage_code_t,frequency_t,max_t,data_source_t,formula_t,repor_t,equipment_t=None):
-        add_error=self.collect_h.add_collect_data(name_t,range_t,product_t,product_unit_t,data_type_t,data_class_t,usage_code_t,frequency_t,max_t,data_source_t,formula_t,repor_t,equipment_t)
-        self.assertTrue(add_error,"测试成功")
+        add=self.collect_h.add_collect_data(name_t,range_t,product_t,product_unit_t,data_type_t,data_class_t,usage_code_t,frequency_t,max_t,data_source_t,formula_t,repor_t,equipment_t)
+        self.assertTrue(add,"测试成功")
 
 
 

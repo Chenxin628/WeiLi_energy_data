@@ -41,8 +41,8 @@ class Test_Measuring_instruments(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_instruments(self,name_t,type_t,grade_t,enery_t,meter_t,fetch,enerytpye_t,magnification_t):
-        add_error=self.measuring_h.add_instruments(name_t,type_t,grade_t,enery_t,meter_t,fetch,enerytpye_t,magnification_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.measuring_h.add_instruments(name_t,type_t,grade_t,enery_t,meter_t,fetch,enerytpye_t,magnification_t)
+        self.assertTrue(add,"测试成功")
 
 
 

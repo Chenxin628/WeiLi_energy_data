@@ -40,11 +40,19 @@ class Yield_handle(unittest.TestCase):
         #     action.show_wait("anticon-check-circle")
         # except:
         #     action.select_data("关 闭","ant-modal-footer","button")[-2].click()
-        action.click_cancel("ant-message-notice-content","关 闭")
-        if action.get_element("AddElement","messiage"):
+        # action.click_cancel("ant-message-notice-content","关 闭")
+        if action.get_xpath_text(name_t):
+            self.logger.info("找到文本:"+name_t+",生产产品添加成功")
             return True
         else:
+            self.logger.info("未找到文本:"+name_t+",生产产品添加失败")
             return False
+
+        
+        # if action.get_element("AddElement","messiage"):
+        #     return True
+        # else:
+        #     return False
     
 
 

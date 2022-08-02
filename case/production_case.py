@@ -39,8 +39,8 @@ class Test_Production(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_level(self,level_name_t,level_num_t):
-        add_error=self.production_h.add_level(level_name_t,level_num_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.production_h.add_level(level_name_t,level_num_t)
+        # self.assertTrue(add,"测试成功")
 
     @ddt.data(
         ['90','脚本测试新建工序单元','01','100','2022年07月19日']
@@ -48,8 +48,8 @@ class Test_Production(unittest.TestCase):
     )
     @ddt.unpack
     def test_2_add_Unit(self,level_num_t,name_t,unit_num_t,yield_t,date_t):
-        add_error=self.production_h.add_Unit(level_num_t,name_t,unit_num_t,yield_t,date_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.production_h.add_Unit(level_num_t,name_t,unit_num_t,yield_t,date_t)
+        self.assertTrue(add,"测试成功")
 
 
 

@@ -60,10 +60,12 @@ class ActionMethod:
         time.sleep(0.5)
         try:
             driver.find_element_by_xpath(f'//*[contains(text(),"{text}")]')
-            self.logger.info("找到"+text+",文本未被删除或已添加")
-
+            return True
         except:
-            self.logger.info("未找到"+text+",文本已被删除或不存在")
+            return False
+            
+
+
 
     
     

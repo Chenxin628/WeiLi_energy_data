@@ -1,9 +1,13 @@
+import os
+import sys
+curPath = os.path.abspath(os.path.join(os.getcwd()))
+sys.path.append(curPath)
 from handle.yield_product_handle import Yield_handle
 from base.actionMethod import ActionMethod
 from log.log import CaseLog
 import unittest
 import ddt
-import os
+
 
 file_path = os.path.join(os.getcwd()+"\\config\\YieldElement.ini")
 action=ActionMethod(file_path)

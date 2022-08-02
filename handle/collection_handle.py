@@ -37,7 +37,7 @@ class Collection_handle():
             
         # 判断是否有名称为"脚本测试新增采集源"的采集源，有则删除
         action.delete_data(name_t,"vxe-body--row","删除","button","确 定")
-        action.get_xpath_text(name_t)
+        # action.get_xpath_text(name_t)
 
 
         # 添加采集源
@@ -60,6 +60,12 @@ class Collection_handle():
         # 点击提交
         action.get_xpath_element("提 交")
         action.sleep_time()
+        if action.get_xpath_text(name_t):
+            self.logger.info("找到文本:"+name_t+",采集源添加成功")
+            return True
+        else:
+            self.logger.info("未找到文本:"+name_t+",采集源添加失败")
+            return False
 
  
 
@@ -80,6 +86,7 @@ class Collection_handle():
         #     text=action.get_element("AddTableElement","message").text
         #     self.logger.warning(text)
         #     action.click_element("AddTableElement","close")
+
         action.click_cancel("ant-message-notice-content","取 消")
 
     def add_meter(self,collect_t,table_t,num_t,name_t,methon_t,address_t):
@@ -95,6 +102,12 @@ class Collection_handle():
         action.select_data(methon_t,"ant-select-dropdown-menu-item")
         action.element_send_keys("AddMeterElement","add_meter_address",address_t)
         action.click_element("AddMeterElement","add_meter_submit")
+        if action.get_xpath_text(num_t):
+            self.logger.info("找到文本:"+num_t+",表计添加成功")
+            return True
+        else:
+            self.logger.info("未找到文本:"+num_t+",表计添加失败")
+            return False
 
 
     

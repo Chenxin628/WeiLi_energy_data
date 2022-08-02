@@ -1,6 +1,10 @@
 #coding=utf-8
+import os
+import sys
+curPath = os.path.abspath(os.path.join(os.getcwd()))
+sys.path.append(curPath)
 from base.actionMethod import ActionMethod
-from collection_case import Test_Collect
+from case.collection_case import Test_Collect
 from energy_type_case import Test_Energy_type
 from energy_report_case import Test_Energy_report
 from measuring_instruments_case import Test_Measuring_instruments

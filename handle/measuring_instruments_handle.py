@@ -1,6 +1,7 @@
 #coding=utf-8
 from base.actionMethod import ActionMethod
 from handle.login_test import LoginTest
+from log.log import CaseLog
 import unittest
 import os
 
@@ -9,6 +10,8 @@ action=ActionMethod(file_path)
 class Measuring_instruments_handle(unittest.TestCase):
     def __init__(self):
         LoginTest()
+        self.log = CaseLog()
+        self.logger = self.log.get_log()
         #进入计量器具信息
         action.select_data("企业信息","ant-menu-submenu-inline")
         action.select_data("计量器具信息","ant-menu-item")
@@ -105,7 +108,14 @@ class Measuring_instruments_handle(unittest.TestCase):
         #     action.show_wait("anticon-check-circle")
         # except:
         #     action.select_data("关 闭","ant-modal-footer","button")[-2].click()
-        action.click_cancel("ant-message-notice-content","关 闭")
+        # action.click_cancel("ant-message-notice-content","关 闭")
+        if action.get_xpath_text(name_t):
+            self.logger.info("找到文本:"+name_t+",计量器具添加成功")
+            return True
+        else:
+            self.logger.info("未找到文本:"+name_t+",计量器具添加失败")
+            return False
+
         
 
     # def test_2_add(self):

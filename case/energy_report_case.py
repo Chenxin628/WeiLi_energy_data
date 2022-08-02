@@ -41,8 +41,8 @@ class Test_Energy_report(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_add_report(self,name_t):
-        add_error=self.energy_h.add_report(name_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.energy_h.add_report(name_t)
+        # self.assertTrue(add,"测试成功")
 
     @ddt.data(
         ['脚本测试新建报告']
@@ -50,8 +50,8 @@ class Test_Energy_report(unittest.TestCase):
     )
     @ddt.unpack
     def test_2_add_module(self,name_t):
-        add_error=self.energy_h.add_module(name_t)
-        # self.assertTrue(add_error,"测试成功")
+        add=self.energy_h.add_module(name_t)
+        # self.assertTrue(add,"测试成功")
   
 
 

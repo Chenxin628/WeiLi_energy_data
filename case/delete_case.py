@@ -46,7 +46,8 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_1_delete_collect_data(self,collectdata_name_t):
-        self.delete_h.delete_collect_data(collectdata_name_t)
+        delete=self.delete_h.delete_collect_data(collectdata_name_t)
+        self.assertFalse(delete,"删除成功")
 
 
     @ddt.data(
@@ -54,7 +55,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_2_delete_instruments(self,meter_t):
-        self.delete_h.delete_instruments(meter_t)
+        delete=self.delete_h.delete_instruments(meter_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
     @ddt.data(
@@ -62,7 +65,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_3_delete_Yield(self,Yield_name_t):
-        self.delete_h.delete_Yield(Yield_name_t)
+        delete=self.delete_h.delete_Yield(Yield_name_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
     @ddt.data(
@@ -70,7 +75,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_4_delete_Production(self,level_num_t):
-        self.delete_h.delete_Production(level_num_t)
+        delete=self.delete_h.delete_Production(level_num_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
     @ddt.data(
@@ -78,7 +85,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_5_delete_Energy_type(self,Energytype_name_t):
-        self.delete_h.delete_Energy_type(Energytype_name_t)
+        delete=self.delete_h.delete_Energy_type(Energytype_name_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
     @ddt.data(
@@ -86,7 +95,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_6_delete_Energy_report(self,Energyreport_name_t):
-        self.delete_h.delete_Energy_report(Energyreport_name_t)
+        delete=self.delete_h.delete_Energy_report(Energyreport_name_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
     @ddt.data(
@@ -94,7 +105,9 @@ class Test_Delete_data(unittest.TestCase):
     )
     @ddt.unpack
     def test_7_delete_Collection(self,Collection_name_t,table_t):
-        self.delete_h.delete_Collection(Collection_name_t,table_t)
+        delete=self.delete_h.delete_Collection(Collection_name_t,table_t)
+        self.assertFalse(delete,"删除成功")
+
 
 
 

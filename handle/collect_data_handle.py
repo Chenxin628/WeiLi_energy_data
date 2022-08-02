@@ -1,6 +1,7 @@
 #coding=utf-8
 from base.actionMethod import ActionMethod
 from handle.login_test import LoginTest
+from log.log import CaseLog
 import os
 
 file_path = os.path.join(os.getcwd()+"\\config\\Collect_data_Element.ini")
@@ -9,6 +10,8 @@ action=ActionMethod(file_path)
 class Collect_data_handle():
     def __init__(self):
         LoginTest()
+        self.log = CaseLog()
+        self.logger = self.log.get_log()
         #进入采集数据项信息
         action.select_data("企业信息","ant-menu-submenu-inline")
         action.select_data("采集数据项信息","ant-menu-item")
@@ -94,12 +97,17 @@ class Collect_data_handle():
         #     action.select_data("关 闭","ant-modal-footer","button")[-2].click()
         action.click_cancel("ant-message-notice-content","关 闭")
         
-
-
-        if action.get_element("MessiageElement","messiage"):
+        if action.get_xpath_text(name_t):
+            self.logger.info("找到文本:"+name_t+",采集项添加成功")
             return True
         else:
+            self.logger.info("未找到文本:"+name_t+",采集项添加失败")
             return False
+
+        # if action.get_element("MessiageElement","messiage"):
+        #     return True
+        # else:
+        #     return False
 
         
         # action.close_browser()
